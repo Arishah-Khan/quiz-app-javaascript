@@ -23,7 +23,7 @@ var quizQuestions = [
         correctAnswer: "optionA"
     },
     {
-        question: "Which of the following is a JavaScript framework?",
+        question: "Which of the following is a JavaScript library?",
         optionA: "React",
         optionB: "Laravel",
         optionC: "Django",
@@ -96,7 +96,7 @@ var timeLeft = 300;
 function startTimer() {
     timer = setInterval(function () {
         var minutes = Math.floor(timeLeft / 60);
-        var seconds = timeLeft % 60;
+        var seconds = timeLeft - (minutes * 60);
         timerDisplay.textContent = `Time Remaining:
         ${minutes.toString().padStart(2, '0')}m:${seconds.toString().padStart(2, '0')}s`;
         if (timeLeft <= 0) {
@@ -140,29 +140,28 @@ function showQuestions() {
             quizContainer.appendChild(optionLabel);
             quizContainer.appendChild(document.createElement("br"));
 
-            // Add event listener to enable next button when an option is selected
+            
             optionInput.addEventListener("change", function () {
                 nextButton.disabled = false;
             });
         }
     }
-
-    nextButton.disabled = !selectedAnswers[index]; // Disable next button if no option selected
+    nextButton.disabled = !selectedAnswers[index]; 
 }
 
 nextButton.addEventListener('click', function () {
 
 
-    // Get all elements by the name 'options'
+
     var selectedOptions = document.getElementsByName('options');
     var isOptionSelected = false;
 
-    // Loop through the NodeList to find the checked option
+    
     for (var i = 0; i < selectedOptions.length; i++) {
         if (selectedOptions[i].checked) {
-            selectedAnswers[index] = selectedOptions[i].value; // Store the selected answer
+            selectedAnswers[index] = selectedOptions[i].value; 
             isOptionSelected = true;
-            break; // Exit the loop once we find the checked option
+            break; 
         }
     }
 
@@ -178,22 +177,22 @@ nextButton.addEventListener('click', function () {
         showQuestions();
     }
 
-    prevButton.disabled = index === 0; // Disable previous button if it's the first question
+    prevButton.disabled = index === 0; 
 });
 
 prevButton.addEventListener('click', function () {
     index--;
     showQuestions();
-    prevButton.disabled = index === 0; // Disable previous button if it's the first question
+    prevButton.disabled = index === 0; 
 });
 
 function showResults() {
-    clearInterval(timer); // Stop the timer when results are shown
+    clearInterval(timer); 
     quizContainer.style.display = "none";
     nextButton.style.display = 'none';
     prevButton.style.display = 'none';
 
-    // Calculate the score
+    
     var score = 0;
     for (var i = 0; i < quizQuestions.length; i++) {
         if (selectedAnswers[i] === quizQuestions[i].correctAnswer) {
@@ -201,12 +200,12 @@ function showResults() {
         }
     }
 
-    // Calculate percentage and remarks
+    
     var totalQuestions = quizQuestions.length;
     var percentage = (score / totalQuestions) * 100;
     var status = percentage >= 50 ? "Pass" : "Fail";
 
-    // Generate detailed performance remark based on percentage
+ 
     var remark;
     if (percentage >= 90) {
         remark = "Excellent work! You have a strong grasp of the material and demonstrated exceptional knowledge.";
@@ -220,7 +219,7 @@ function showResults() {
         remark = "Poor performance, consider revisiting the material and practicing more to improve your understanding.";
     }
 
-    // Display the results with detailed performance feedback
+   
     detailedResultsContainer.innerHTML = `
         <h2 class="animate__animated animate__fadeIn result">Quiz Results</h2>
         <h4>Your Total Score: ${score} out of ${totalQuestions}</h3>
