@@ -1,0 +1,160 @@
+body {
+    background-color: #ca8ce5;
+    color: #333;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+    #quizContainer {
+        background-color: #f4f4f4; /* Dark purple background */
+        border: 1px solid #8f56b0; /* Lighter purple border */
+        border-radius: 5px;
+        padding: 20px;
+        color: #ffffff; /* White text for better contrast */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 30px;
+        color: black;
+    }
+
+    #resultsContainer{
+         background-color: #f4f4f4; /* Dark purple background */
+        border: 1px solid #8f56b0; /* Lighter purple border */
+        border-radius: 5px;
+        padding: 20px;
+        color: #ffffff; /* White text for better contrast */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 30px;
+        color: black;
+    }
+
+#timer {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #7025a2;
+}
+input{
+    margin: 0px  15px;
+    border-radius: 5px;
+    border: 1px solid purple;
+}
+
+.heading{
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+    button {
+        background-color: #7025a2; /* Dark purple background */
+        border-color: #5a2c9c; /* Dark purple border */
+        color: #ffffff; /* White text */
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 5px;
+    }
+    
+    button:hover {
+        background-color: #6f42c1; /* Slightly lighter purple on hover */
+        border-color: #6f42c1; /* Slightly lighter purple border on hover */
+    }
+    
+    button:focus {
+        outline: none;
+      
+    }
+    
+    .disable:disabled {
+        background-color: #e0dde6; /* Grey background for disabled state */
+        border-color: #b0a7c3; /* Grey border for disabled state */
+        color: rgb(167, 160, 160); /* White text for readability */
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+        border: 2px solid #e0dde6;
+    }
+    h3{
+        color: #7025a2;
+        font-weight: 600;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+
+    }
+    label{
+        margin-bottom: 5px;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h4{
+        color: #7025a2;
+        font-weight: 600;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        text-align: center;
+    }
+    .para{
+        
+        font-size: 15px;
+    
+    }
+    span{
+        font-size: 16px;
+        color: #7025a2;
+        font-weight: bold;
+    }
+@media (max-width: 480px) {
+h3{
+    font-size: 1em;
+}
+    #timer{
+        font-size: 1.3em;
+    }
+    label{
+        font-size: 12px;
+    }  
+
+    h4{
+        font-size: 1em;
+    }
+    .para{
+        font-size: 14px;
+    }
+    span{
+        font-size: 16px;
+    }
+}
+
+.restart {
+    background-color: #7025a2; /* Dark purple background */
+    border:2px solid black; /* Dark purple border */
+    color: #ffffff; /* White text */
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.restart:hover {
+    background-color: #cecad6;
+    border: 2px solid #6f42c1;
+    color: black;
+}
+
+.restart:focus {
+    outline: none;
+  
+}
+.restartBtn{
+    text-align: center;
+}
+.result{
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+

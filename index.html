@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="image/quizIcon.jpg" type="image/x-icon">
 </head>
 <body>
-    <div id="quizContainer"></div>
-    <button id="nextBtn" disabled>Next</button>
+    <div class="container">
+        <h1 class="animate__animated animate__fadeIn text-center heading">Quiz App</h1>
+        <div id="timer" class="text-center"></div>
+        <div id="quizContainer" class="card"></div>
+        <div class="text-center">
+            <button id="prevBtn" class="disable"  disabled>Previous</button>
+            <button id="nextBtn" class="disable"  disabled>Next</button>
+        </div>
+        <div id="resultsContainer" class="card" style="display: none;"></div>
+    </div>
 
-    <button id="prevBtn" disabled>Previous</button>
 
-    <div id="detailedResultsContainer" style="display: none;"></div>
 
+
+ 
     <script src="main.js">
 
     </script>
