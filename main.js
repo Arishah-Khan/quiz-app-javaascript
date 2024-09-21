@@ -1,43 +1,42 @@
 var quizQuestions = [
     {
         question: "What does CSS stand for?",
-        optionA: "Cascading Style Sheets",
-        optionB: "Computer Style Sheets",
+        optionA: "Computer Style Sheets",
+        optionB: "Cascading Style Sheets",
         optionC: "Creative Style Sheets",
-        correctAnswer: "optionA"
+        correctAnswer: "optionB"
     },
     {
         question: "Which HTML tag is used to define an image?",
-        optionA: "<img>",
+        optionA: "<image>",
         optionB: "<picture>",
-        optionC: "<image>",
+        optionC: "<img>",
         optionD: "<photo>",
-        correctAnswer: "optionA"
+        correctAnswer: "optionC"
     },
     {
         question: "Which of the following is a valid JavaScript function declaration?",
-        optionA: "function myFunction() {}",
+        optionA: "function:myFunction() {}",
         optionB: "func myFunction() {}",
         optionC: "myFunction() => {}",
-        optionD: "function:myFunction() {}",
-        correctAnswer: "optionA"
+        optionD: "function myFunction() {}",
+        correctAnswer: "optionD"
     },
     {
         question: "Which of the following is a JavaScript library?",
-        optionA: "React",
+        optionA: "Django",
         optionB: "Laravel",
-        optionC: "Django",
+        optionC: "React",
         optionD: "Flask",
-        correctAnswer: "optionA"
+        correctAnswer: "optionC"
     },
     {
-        question: "How can you access the value of an HTML input element in JavaScript?",
-        optionA: "document.getElementById('input').value",
-        optionB: "document.querySelector('#input').value",
-        optionC: "document.input.value",
-        optionD: "document.getElementByName('input').value",
-        optionE: "document.getValue('input')",
-        correctAnswer: "optionA"
+        question: "What is the correct way to access an object's property?",
+        optionA: "obj.prop", 
+        optionB: "obj->prop",
+        optionC: "obj.get('prop')",
+        optionD: "obj::prop",
+        correctAnswer: "optionA" 
     },
     {
         question: "Which CSS property controls the text size?",
@@ -48,11 +47,11 @@ var quizQuestions = [
     },
     {
         question: "Which method is used to add an element to the end of an array in JavaScript?",
-        optionA: "push()",
+        optionA: "unshift()",
         optionB: "pop()",
         optionC: "shift()",
-        optionD: "unshift()",
-        correctAnswer: "optionA"
+        optionD: "push()",
+        correctAnswer: "optionD"
     },
     {
         question: "Which of the following HTML elements defines navigation links?",
@@ -64,12 +63,12 @@ var quizQuestions = [
     },
     {
         question: "What is the purpose of the <footer> tag in HTML?",
-        optionA: "To define footer content",
-        optionB: "To create a header",
+        optionA: "To create a header",
+        optionB: "To define footer content",
         optionC: "To include scripts",
         optionD: "To define main content",
         optionE: "To create a sidebar",
-        correctAnswer: "optionA"
+        correctAnswer: "optionB"
     },
     {
         question: "Which of the following is NOT a valid data type in JavaScript?",
@@ -83,6 +82,7 @@ var quizQuestions = [
 
 
 var index = 0;
+var headingColor = document.getElementById("headingColor");
 var quizContainer = document.getElementById("quizContainer");
 var nextButton = document.getElementById("nextBtn");
 var prevButton = document.getElementById("prevBtn");
@@ -127,6 +127,7 @@ function showQuestions() {
             optionInput.type = "radio";
             optionInput.name = "options";
             optionInput.value = option;
+            optionInput.className = "option"
 
 
             if (selectedAnswers[index] === option) {
@@ -191,6 +192,7 @@ function showResults() {
     quizContainer.style.display = "none";
     nextButton.style.display = 'none';
     prevButton.style.display = 'none';
+    headingColor.style.backgroundColor = "#92be6f";
 
     
     var score = 0;
@@ -204,6 +206,40 @@ function showResults() {
     var totalQuestions = quizQuestions.length;
     var percentage = (score / totalQuestions) * 100;
     var status = percentage >= 50 ? "Pass" : "Fail";
+
+    
+
+    const duration = 2 * 60 * 1000,
+  animationEnd = Date.now() + duration,
+  defaults = { startVelocity: 25, spread: 360, ticks: 60, zIndex: 0 };
+
+function randomInRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+const interval = setInterval(function() {
+  const timeLeft = animationEnd - Date.now();
+
+  if (timeLeft <= 0) {
+    return clearInterval(interval);
+  }
+
+  const particleCount = 50 * (timeLeft / duration);
+
+ 
+  confetti(
+    Object.assign({}, defaults, {
+      particleCount,
+      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+    })
+  );
+  confetti(
+    Object.assign({}, defaults, {
+      particleCount,
+      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+    })
+  );
+}, 250);
 
  
     var remark;
@@ -222,7 +258,7 @@ function showResults() {
    
     detailedResultsContainer.innerHTML = `
         <h2 class="animate__animated animate__fadeIn result">Quiz Results</h2>
-        <h4>Your Total Score: ${score} out of ${totalQuestions}</h3>
+        <h4>Your Total Score: ${score} out of ${totalQuestions} </h3>
         <h4>Your Percentage: ${percentage}%</h3>
         <h4>Status: ${status}</h3>
         <p class="para"><span>Performance:</span> ${remark}</p>
